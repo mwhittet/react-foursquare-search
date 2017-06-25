@@ -4,9 +4,10 @@ import '../css/app.css';
 class Search extends Component {
   render() {
     return (
-      <div>
-        Test
-      </div>
+      <form className="search" onSubmit={ (e) => this.submitSearch(e) }>
+        <input type="text" required placeholder="Please enter a location" />
+        <button type="submit">Search</button>
+      </form>
     );
   } // render
 }
