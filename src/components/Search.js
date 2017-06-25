@@ -14,7 +14,7 @@ class Search extends Component {
           <input type="text" required placeholder="Please enter a location" ref={ (input) => { this.searchInput = input} } />
           <button type="submit">Search</button>
         </form>
-        
+
         <p>Your results:</p>
         <ul id="search-results"></ul>
       </div>
@@ -27,9 +27,16 @@ class Search extends Component {
     var searchString = this.searchInput.value; // First grab the text from the input.
     var cleanValue = searchString.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''); // Next filter any special characters out.
     var finalValue = cleanValue.replace(/\s/g, '+'); // Join words with a + to make the query more friendly.
-    console.log('Test input: ' +  finalValue);
 
     document.getElementsByTagName('form')[0].reset(); // Clear the input for a new search.
+
+    // Foursquare varibles.
+    var clientId = 'ZVO0EMZIW0HU5WU0VGRKGUEGDFN5W5IKX5DXSTN5Q0LAOAK4';
+    var clientSecret = 'XTSDR4NI4ZED1X3ABZ2IZ2Z2VCHZAFTCZN2OLH5PFFJU5SNS';
+    var limit = 25;
+    var api = `https://api.foursquare.com/v2/venues/explore?v=20161016&client_id=${clientId}&client_secret=${clientSecret}&near=${finalValue}&limit=${limit}`;
+
+    var resultsDiv = document.getElementById('search-results');
   }
 }
 
