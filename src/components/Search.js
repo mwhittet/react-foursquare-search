@@ -29,8 +29,9 @@ class Search extends Component {
     var cleanValue = searchString.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''); // Next filter any special characters out.
     var finalValue = cleanValue.replace(/\s/g, '+'); // Join words with a + to make the query more friendly.
 
-    // Clear the input for a new search.
+    // Clear the input/#search-results for a new search.
     document.getElementsByTagName('form')[0].reset();
+    document.getElementById('search-results').innerHTML = '';
 
     // Foursquare varibles.
     var clientId = 'ZVO0EMZIW0HU5WU0VGRKGUEGDFN5W5IKX5DXSTN5Q0LAOAK4';
@@ -42,6 +43,10 @@ class Search extends Component {
       .then((resp) => resp.json())
       .then(function(data) {
         console.log(data.response.groups[0].items);
+        let searchResults = data.response.groups[0].items;
+        return searchResults.map(function(searchResult) {
+          console.log(searchResult);
+        })
       })
       .catch(function(error) {
         console.log(error);
