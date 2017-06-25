@@ -45,7 +45,10 @@ class Search extends Component {
         console.log(data.response.groups[0].items);
         let searchResults = data.response.groups[0].items;
         return searchResults.map(function(searchResult) {
-          console.log(searchResult);
+          console.log('Name: ' + searchResult.venue.name);
+          console.log('First line: ' + searchResult.venue.location.address);
+          console.log('Post Code: ' + searchResult.venue.location.postalCode);
+          console.log('Number of Checkins: ' + searchResult.venue.stats.checkinsCount);
         })
       })
       .catch(function(error) {
