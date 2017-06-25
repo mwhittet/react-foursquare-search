@@ -45,10 +45,17 @@ class Search extends Component {
         console.log(data.response.groups[0].items);
         let searchResults = data.response.groups[0].items;
         return searchResults.map(function(searchResult) {
-          console.log('Name: ' + searchResult.venue.name);
-          console.log('First line: ' + searchResult.venue.location.address);
-          console.log('Post Code: ' + searchResult.venue.location.postalCode);
-          console.log('Number of Checkins: ' + searchResult.venue.stats.checkinsCount);
+          let li = `
+            <a href="https://foursquare.com/v/${searchResult.venue.id}" target="_blank" title="${searchResult.venue.name}">
+              <ul>
+                <li class="name">${searchResult.venue.name}</li>
+                <li class="first-line">First line: ${searchResult.venue.location.address}</li>
+                <li class="postcode">Post Code: ${searchResult.venue.location.postalCode}</li>
+                <li class="stats">Number of Checkins: ${searchResult.venue.stats.checkinsCount}</li>
+              </ul>
+            </a>`;
+
+          console.log(li);
         })
       })
       .catch(function(error) {
