@@ -18,7 +18,7 @@ class App extends Component {
     );
   } // render
 
-  // custom function
+  // custom functions
   onSubmit(data) {
     this.setState({
       data
