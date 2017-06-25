@@ -15,7 +15,9 @@ class Search extends Component {
   submitSearch(e) {
     e.preventDefault();
     var searchString = this.searchInput.value; // First grab the text from the input.
-    console.log('Test input: ' +  searchString);
+    var cleanValue = searchString.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''); // Next filter any special characters out.
+    var finalValue = cleanValue.replace(/\s/g, '+'); // Join words with a + to make the query more friendly.
+    console.log('Test input: ' +  finalValue);
   }
 }
 
