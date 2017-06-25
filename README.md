@@ -1,5 +1,5 @@
 # React Foursquare Search
-For this test I have used the React - [Create React App](https://github.com/facebookincubator/create-react-app) as I'm still learning React and I'm keen to develop more using it.
+For this test I have used the React [Create React App](https://github.com/facebookincubator/create-react-app) as a starting point to build upon, I'm currently learning React and I'm keen to develop more using it.
 
 ## Getting Started
 `npm start`
@@ -17,4 +17,11 @@ The build is minified and the filenames include the hashes. By default, it also 
 Deploy's the app to [https://mwhittet.github.io/react-foursquare-search/](https://mwhittet.github.io/react-foursquare-search/) to view it in the browser and makes it easier to view.
 
 ## Notes
-I'll do this later.
+**2 main components:**
+- App - The parent component, imports Search
+- Search - The main component that retrieves the query, fetches it and returns a result.
+
+## What I would do differently
+- Break the Search component down into more components e.g. maybe a SearchResults component to take care of the results when fetched.
+- Introduce more tests.
+- Enhance the look and feel to make it more user friendly.
