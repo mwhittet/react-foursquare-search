@@ -24,11 +24,13 @@ class Search extends Component {
   // custom functions
   submitSearch(e) {
     e.preventDefault();
+    var resultsDiv = document.getElementById('search-results'); // Store this for later.
     var searchString = this.searchInput.value; // First grab the text from the input.
     var cleanValue = searchString.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''); // Next filter any special characters out.
     var finalValue = cleanValue.replace(/\s/g, '+'); // Join words with a + to make the query more friendly.
 
-    document.getElementsByTagName('form')[0].reset(); // Clear the input for a new search.
+    // Clear the input for a new search.
+    document.getElementsByTagName('form')[0].reset();
 
     // Foursquare varibles.
     var clientId = 'ZVO0EMZIW0HU5WU0VGRKGUEGDFN5W5IKX5DXSTN5Q0LAOAK4';
@@ -36,7 +38,14 @@ class Search extends Component {
     var limit = 25;
     var api = `https://api.foursquare.com/v2/venues/explore?v=20161016&client_id=${clientId}&client_secret=${clientSecret}&near=${finalValue}&limit=${limit}`;
 
-    var resultsDiv = document.getElementById('search-results');
+    fetch(api)
+      .then((resp) => resp.json())
+      .then(function(data) {
+        console.log(data.response.groups[0].items);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 }
 
