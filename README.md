@@ -1,9 +1,7 @@
 # React Foursquare Search
----
 For this test I have used the React - [Create React App](https://github.com/facebookincubator/create-react-app) as I'm still learning React and I'm keen to develop more using it.
 
 ## Getting Started
----
 `npm start`
 Runs the app in development mode, [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -19,5 +17,4 @@ The build is minified and the filenames include the hashes. By default, it also 
 Deploy's the app to [https://mwhittet.github.io/react-foursquare-search/](https://mwhittet.github.io/react-foursquare-search/) to view it in the browser and makes it easier to view.
 
 ## Notes
----
 I'll do this later.
