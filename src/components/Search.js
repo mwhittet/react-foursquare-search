@@ -42,9 +42,10 @@ class Search extends Component {
     fetch(api)
       .then((resp) => resp.json())
       .then(function(data) {
-        console.log(data.response.groups[0].items);
+        // console.log(data.response.groups[0].items); // Testing our data.
         let searchResults = data.response.groups[0].items;
         return searchResults.map(function(searchResult) {
+          // Basic template structure which we will populate with some venue data.
           let li = `
             <a href="https://foursquare.com/v/${searchResult.venue.id}" target="_blank" title="${searchResult.venue.name}">
               <ul>
@@ -55,7 +56,9 @@ class Search extends Component {
               </ul>
             </a>`;
 
-          console.log(li);
+          var result = document.createElement('li'); // Appends each result into our #search-results
+          result.innerHTML = li;
+          resultsDiv.appendChild(result);
         })
       })
       .catch(function(error) {
